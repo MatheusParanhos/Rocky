@@ -101,8 +101,7 @@ export default class WatchContainer extends Component {
     return (
       <View style={styles.container}>
         <Text>{this.state.result}</Text>
-        <Text>{this.state.JackChoice} vs {this.state.JadeChoice}</Text>
-        <Text></Text>
+        <Text>{this.state.JackChoice} {this.state.JadeChoice}</Text>
         <Text>{this.state.countdown}</Text>
         <Button
           title={"Rock"}
