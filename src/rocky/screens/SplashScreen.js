@@ -1,7 +1,16 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, TimerMixin } from 'react-native'
+import { withNavigation } from "react-navigation";
 
-export default class Splash extends Component {
+export class Splash extends Component {
+    componentDidMount() {
+        this.navigateToApp()
+    }
+    navigateToApp(){
+        this.timer = setTimeout(() => {
+            this.props.navigation.navigate("App");
+          }, 2000);
+    }
   render() {
     return (
       <View style={styles.container}>
@@ -19,3 +28,5 @@ const styles = StyleSheet.create({
       backgroundColor: 'white'
     }
   });
+
+  export default withNavigation(Splash)
