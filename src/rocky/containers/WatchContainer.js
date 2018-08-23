@@ -6,8 +6,8 @@ export default class WatchContainer extends Component {
     super(props);
     // Initialize states
     this.state = {
-      userChoice: "",
-      computerChoice: "",
+      JackChoice: "",
+      JadeChoice: "",
       result: "",
       countdown: ""
     };
@@ -15,24 +15,26 @@ export default class WatchContainer extends Component {
   JokenPo() {
     // Reinitialize state
     this.setState({
-      result: ""
+      result: "",
+      JackChoice: "",
+      JadeChoice: ""
     });
     // Initialize variables
     let result = "";
-    let Jade = "";
-    let Jack = "";
+    let JadeChoice = "";
+    let JackChoice = "";
     // Generate a random number
     const randomNumber = Math.floor(Math.random() * 3);
 
     switch (randomNumber) {
       case 0:
-        Jade = "rock";
+        JadeChoice = "rock";
         break;
       case 1:
-        Jade = "paper";
+        JadeChoice = "paper";
         break;
       case 2:
-        Jade = "scissors";
+        JadeChoice = "scissors";
         break;
     }
 
@@ -40,13 +42,13 @@ export default class WatchContainer extends Component {
 
     switch (randomNumber2) {
       case 0:
-        Jack = "rock";
+        JackChoice = "rock";
         break;
       case 1:
-        Jack = "paper";
+        JackChoice = "paper";
         break;
       case 2:
-        Jack = "scissors";
+        JackChoice = "scissors";
         break;
     }
     // Initialize Countdown
@@ -70,27 +72,27 @@ export default class WatchContainer extends Component {
     startCountdown();
 
     // Compare answers
-    let compare = function(Jack, Jade) {
-      if (Jack === Jade) {
+    let compare = function(JackChoice, JadeChoice) {
+      if (JackChoice === JadeChoice) {
         result = "draw";
-      } else if (Jack === "scissors" && Jade === "paper") {
+      } else if (JackChoice === "scissors" && JadeChoice === "paper") {
         result = "Jack won";
-      } else if (Jack === "rock" && Jade === "scissors") {
+      } else if (JackChoice === "rock" && JadeChoice === "scissors") {
         result = "Jack won";
-      } else if (Jack === "paper" && Jade === "rock") {
+      } else if (JackChoice === "paper" && JadeChoice === "rock") {
         result = "Jack won";
       } else {
         result = "Jade won";
       }
     };
     // Call compare function
-    compare(Jack, Jade);
+    compare(JackChoice, JadeChoice);
 
     // Set state of result
     this.countdown = setTimeout(() => {
       this.setState({
-        Jade,
-        Jack,
+        JadeChoice,
+        JackChoice,
         result
       });
     }, 3000);
@@ -99,6 +101,8 @@ export default class WatchContainer extends Component {
     return (
       <View style={styles.container}>
         <Text>{this.state.result}</Text>
+        <Text>{this.state.JackChoice} vs {this.state.JadeChoice}</Text>
+        <Text></Text>
         <Text>{this.state.countdown}</Text>
         <Button
           title={"Rock"}
