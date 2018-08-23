@@ -4,6 +4,7 @@ import { withNavigation } from "react-navigation";
 
 export class Splash extends Component {
     componentDidMount() {
+        console.log(this.props)
         this.navigateToApp()
     }
     navigateToApp(){
@@ -29,4 +30,4 @@ const styles = StyleSheet.create({
     }
   });
 
-  export default withNavigation(Splash)
+  export default Splash

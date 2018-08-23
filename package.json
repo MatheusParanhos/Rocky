@@ -7,6 +7,9 @@
     "test": "jest"
   },
   "dependencies": {
+    "@babel/core": "^7.0.0-beta.47",
+    "babel-core": "^7.0.0-beta.47",
+    "babel-loader": "^7.1.5",
     "babel-preset-react-native": "^5",
     "react": "16.4.1",
     "react-native": "0.56.0",
@@ -19,6 +22,12 @@
     "react-test-renderer": "16.4.1"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|react-navigation)/"
+    ]
   }
 }
