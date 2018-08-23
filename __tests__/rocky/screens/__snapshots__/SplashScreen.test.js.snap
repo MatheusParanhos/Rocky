@@ -12,7 +12,7 @@ exports[`renders correctly 1`] = `
   }
 >
   <Text>
-     textInComponent 
+     Splash 
   </Text>
 </View>
 `;

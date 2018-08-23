@@ -1,17 +1,24 @@
 import React, { Component } from "react";
 import { Text, View, StyleSheet } from "react-native";
-import PlayContainer from "../containers/PlayContainer";
-
-export default class PlayScreen extends Component {
+import {Button} from '../../shared/components/Button';
+export default class PlayContainer extends Component {
+  constructor(props) {
+    super(props);
+    // Initialize states 
+    this.state = { 
+      userChoice: "", 
+      computerChoice: "", 
+      result: "" };
+  }
+  
   render() {
     return (
       <View style={styles.container}>
-        <PlayContainer />
+        <Button />
       </View>
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
