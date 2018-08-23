@@ -1,10 +1,9 @@
-// __tests__/Intro-test.js
 import React from 'react';
-import Hello from './Hello';
+import SplashScreen from '../../../src/rocky/screens/SplashScreen';
 
 import renderer from 'react-test-renderer';
 
 test('renders correctly', () => {
-  const tree = renderer.create(<Hello />).toJSON();
+  const tree = renderer.create(<SplashScreen />).toJSON();
   expect(tree).toMatchSnapshot();
 });

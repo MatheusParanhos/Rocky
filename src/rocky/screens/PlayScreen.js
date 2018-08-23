@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
 
-export default class Hello extends Component {
+export default class PlayScreen extends Component {
   render() {
     return (
       <View>
