@@ -8,21 +8,27 @@ export default class PlayContainer extends Component {
     this.state = {
       userChoice: "",
       computerChoice: "",
-      result: ""
+      result: "",
+      countdown: ""
     };
   }
-  componentDidMount() {
-    this.JokenPo("rock");
-  }
+
+  // componentDidMount() {
+  //   this.JokenPo("rock");
+  // }
   //** JokenPo function
   JokenPo(userChoice) {
+    // Reinitialize state
+    this.setState({
+      result: ""
+    });
     // Initialize variables
     let result = "";
     let computerChoice = "";
 
-    // Generates a random number
-     const randomNumber = Math.floor(Math.random() * 3);
-    //const randomNumber = 0
+    // Generate a random number
+    const randomNumber = Math.floor(Math.random() * 3);
+
     switch (randomNumber) {
       case 0:
         computerChoice = "rock";
@@ -34,13 +40,31 @@ export default class PlayContainer extends Component {
         computerChoice = "scissors";
         break;
     }
+    // Initialize Countdown
+    this.setState({
+      countdown: 3
+    });
+
+    startCountdown = () => {
+      this.handleClock = setInterval(() => {
+        decrementClock();
+      }, 1000);
+    };
+ 
+    decrementClock = () => {
+      if (this.state.countdown === 1) clearInterval(this.handleClock);
+      this.setState(prevState => ({ countdown: prevState.countdown - 1 }));
+      if (this.state.countdown === 0) this.setState({ countdown: "" });
+    };
+
+    // Start Countdown
+    startCountdown();
 
     // Compare answers
     let compare = function(computerChoice, userChoice) {
       if (computerChoice === userChoice) {
         result = "draw";
-      }
-      else if (computerChoice === "scissors" && userChoice === "paper") {
+      } else if (computerChoice === "scissors" && userChoice === "paper") {
         result = "computer won";
       } else if (computerChoice === "rock" && userChoice === "scissors") {
         result = "computer won";
@@ -52,22 +76,42 @@ export default class PlayContainer extends Component {
     };
     // Call compare function
     compare(computerChoice, userChoice);
-    // Set result to state
-    this.setState({
-      result
-    });
 
+    // Set state of result
+    this.countdown = setTimeout(() => {
+      this.setState({
+        userChoice,
+        computerChoice,
+        result
+      });
+    }, 3000);
   }
 
   render() {
     return (
       <View style={styles.container}>
         <View style={{ height: 100, width: 100, justifyContent: "center" }}>
-          <Text>Hello</Text>
+          <Text>{this.state.result}</Text>
+          <Text>{this.state.countdown}</Text>
         </View>
-        <Button title={"Rock"} />
-        <Button title={"Paper"} />
-        <Button title={"Scissors"} />
+        <Button
+          title={"Rock"}
+          onPress={() => {
+            this.JokenPo("rock");
+          }}
+        />
+        <Button
+          title={"Paper"}
+          onPress={() => {
+            this.JokenPo("paper");
+          }}
+        />
+        <Button
+          title={"Scissors"}
+          onPress={() => {
+            this.JokenPo("scissors");
+          }}
+        />
       </View>
     );
   }

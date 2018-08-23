@@ -5,7 +5,7 @@ import { deviceWidth, colors, fontFamiliy } from "../../theme/theme";
 export class Button extends Component {
   render() {
     return (
-      <TouchableOpacity style={styles.buttonContainer}>
+      <TouchableOpacity style={styles.buttonContainer} onPress={this.props.onPress}>
         <View
           style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
         >
