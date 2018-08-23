@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { Button } from "../../shared/components/Button";
+import Scissors from "../components/ScissorsButton";
+import Paper from "../components/PaperButton";
+import Rock from "../components/RockButton";
+import { deviceWidth } from "../../theme/theme";
+import Buttons from "../components/Buttons";
+import Result from "../components/Result";
 export default class PlayContainer extends Component {
   constructor(props) {
     super(props);
@@ -50,7 +56,7 @@ export default class PlayContainer extends Component {
         decrementClock();
       }, 1000);
     };
- 
+
     decrementClock = () => {
       if (this.state.countdown === 1) clearInterval(this.handleClock);
       this.setState(prevState => ({ countdown: prevState.countdown - 1 }));
@@ -63,15 +69,15 @@ export default class PlayContainer extends Component {
     // Compare answers
     let compare = function(computerChoice, userChoice) {
       if (computerChoice === userChoice) {
-        result = "draw";
+        result = "Fair enough, it's a draw!";
       } else if (computerChoice === "scissors" && userChoice === "paper") {
-        result = "computer won";
+        result = "Oh, no you lost!";
       } else if (computerChoice === "rock" && userChoice === "scissors") {
-        result = "computer won";
+        result = "Oh, no you lost!";
       } else if (computerChoice === "paper" && userChoice === "rock") {
-        result = "computer won";
+        result = "Oh, no you lost!";
       } else {
-        result = "user won";
+        result = "Nice, you won!";
       }
     };
     // Call compare function
@@ -90,28 +96,27 @@ export default class PlayContainer extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{ height: 100, width: 100, justifyContent: "center" }}>
-          <Text>{this.state.result}</Text>
-          <Text>{this.state.countdown}</Text>
+        <View style={styles.top} />
+        <View style={styles.bottom}>
+          <Result
+            choice={this.state.computerChoice}
+            timer={this.state.countdown}
+            result={this.state.result}
+          />
+
+          <Buttons
+            {...this.props}
+            onScissorsPress={() => {
+              this.JokenPo("scissors");
+            }}
+            onPaperPress={() => {
+              this.JokenPo("paper");
+            }}
+            onRockPress={() => {
+              this.JokenPo("rock");
+            }}
+          />
         </View>
-        <Button
-          title={"Rock"}
-          onPress={() => {
-            this.JokenPo("rock");
-          }}
-        />
-        <Button
-          title={"Paper"}
-          onPress={() => {
-            this.JokenPo("paper");
-          }}
-        />
-        <Button
-          title={"Scissors"}
-          onPress={() => {
-            this.JokenPo("scissors");
-          }}
-        />
       </View>
     );
   }
@@ -119,8 +124,17 @@ export default class PlayContainer extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    width: deviceWidth,
     backgroundColor: "white"
+  },
+  top: {
+    flex: 1
+    // backgroundColor: 'red'
+  },
+  bottom: {
+    flex: 1,
+    justifyContent: "flex-end"
+    // width:'100%',
+    //backgroundColor: 'blue'
   }
 });
