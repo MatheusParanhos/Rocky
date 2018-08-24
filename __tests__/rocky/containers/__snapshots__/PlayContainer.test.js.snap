@@ -1,0 +1,282 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render matches snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PlayContainer />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <Component
+          style={
+            Object {
+              "flex": 1,
+            }
+          }
+        />,
+        <Component
+          style={
+            Object {
+              "flex": 1,
+              "justifyContent": "flex-end",
+            }
+          }
+        >
+          <Result
+            computerChoice=""
+            countdown={null}
+            result=""
+            userChoice=""
+          />
+          <Buttons
+            computerChoice=""
+            onPaperPress={[Function]}
+            onRockPress={[Function]}
+            onScissorsPress={[Function]}
+            result=""
+            timer={0}
+            userChoice=""
+          />
+        </Component>,
+      ],
+      "style": Object {
+        "backgroundColor": "white",
+        "flex": 1,
+        "width": 750,
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "style": Object {
+            "flex": 1,
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <Result
+              computerChoice=""
+              countdown={null}
+              result=""
+              userChoice=""
+            />,
+            <Buttons
+              computerChoice=""
+              onPaperPress={[Function]}
+              onRockPress={[Function]}
+              onScissorsPress={[Function]}
+              result=""
+              timer={0}
+              userChoice=""
+            />,
+          ],
+          "style": Object {
+            "flex": 1,
+            "justifyContent": "flex-end",
+          },
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "computerChoice": "",
+              "countdown": null,
+              "result": "",
+              "userChoice": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "computerChoice": "",
+              "onPaperPress": [Function],
+              "onRockPress": [Function],
+              "onScissorsPress": [Function],
+              "result": "",
+              "timer": 0,
+              "userChoice": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <Component
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          />,
+          <Component
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "flex-end",
+              }
+            }
+          >
+            <Result
+              computerChoice=""
+              countdown={null}
+              result=""
+              userChoice=""
+            />
+            <Buttons
+              computerChoice=""
+              onPaperPress={[Function]}
+              onRockPress={[Function]}
+              onScissorsPress={[Function]}
+              result=""
+              timer={0}
+              userChoice=""
+            />
+          </Component>,
+        ],
+        "style": Object {
+          "backgroundColor": "white",
+          "flex": 1,
+          "width": 750,
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "style": Object {
+              "flex": 1,
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <Result
+                computerChoice=""
+                countdown={null}
+                result=""
+                userChoice=""
+              />,
+              <Buttons
+                computerChoice=""
+                onPaperPress={[Function]}
+                onRockPress={[Function]}
+                onScissorsPress={[Function]}
+                result=""
+                timer={0}
+                userChoice=""
+              />,
+            ],
+            "style": Object {
+              "flex": 1,
+              "justifyContent": "flex-end",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "computerChoice": "",
+                "countdown": null,
+                "result": "",
+                "userChoice": "",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "computerChoice": "",
+                "onPaperPress": [Function],
+                "onRockPress": [Function],
+                "onScissorsPress": [Function],
+                "result": "",
+                "timer": 0,
+                "userChoice": "",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getSnapshotBeforeUpdate": true,
+        },
+      },
+    },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
+  },
+}
+`;

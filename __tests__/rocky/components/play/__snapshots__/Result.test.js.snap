@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "borderRadius": 25,
+      "height": 200,
+      "justifyContent": "center",
+      "width": 750,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 100,
+        "justifyContent": "center",
+        "width": 100,
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "fontFamily": "SignatraDEMO",
+        "fontSize": 50,
+      }
+    }
+  >
+    0
+  </Text>
+  <Text
+    style={
+      Object {
+        "fontFamily": "SignatraDEMO",
+        "fontSize": 50,
+      }
+    }
+  >
+    
+  </Text>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 100,
+        "justifyContent": "center",
+        "marginTop": 30,
+        "width": 100,
+      }
+    }
+  />
+</View>
+`;
