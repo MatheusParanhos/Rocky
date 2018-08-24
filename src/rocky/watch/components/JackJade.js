@@ -16,8 +16,8 @@ export default class JackJade extends Component {
   }
 }
 JackJade.propTypes ={
-  jadeChoice: PropTypes.string,
-  jackChoice: PropTypes.string
+  jadeChoice: PropTypes.string.isRequired,
+  jackChoice: PropTypes.string.isRequired
 }
 JackJade.defaultProps = {
   jadeChoice: '',

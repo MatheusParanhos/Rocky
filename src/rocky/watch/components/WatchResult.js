@@ -13,8 +13,8 @@ export default class WatchResult extends Component {
   }
 }
 WatchResult.propTypes = {
-  countdown: PropTypes.number,
-  result: PropTypes.string
+  countdown: PropTypes.number.isRequired,
+  result: PropTypes.string.isRequired
 }
 WatchResult.defaultProps = {
   countdown: 0,

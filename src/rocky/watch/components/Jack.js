@@ -10,7 +10,7 @@ export default class Jack extends Component {
       return (
         <FontAwesome
           name={`hand-scissors-o`}
-          size={50}
+          size={35}
           color={colors.primary}
           style={{ transform: [{ rotate: "180deg" }] }}
         />
@@ -20,7 +20,7 @@ export default class Jack extends Component {
       return (
         <FontAwesome
           name={`hand-${this.props.jackChoice}-o`}
-          size={50}
+          size={35}
           color={colors.primary}
           style={{ transform: [{ rotate: "90deg" }] }}
         />
@@ -41,7 +41,7 @@ export default class Jack extends Component {
   }
 }
 Jack.propTypes = {
-  jackChoice: PropTypes.string
+  jackChoice: PropTypes.string.isRequired
 };
 Jack.defaultProps = {
   jackChoice: ""

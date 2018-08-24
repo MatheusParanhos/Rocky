@@ -26,9 +26,9 @@ Buttons.propTypes = {
   onRockPress: PropTypes.func.isRequired,
   onPaperPress: PropTypes.func.isRequired,
   onScissorsPress: PropTypes.func.isRequired,
-  userChoice: PropTypes.string,
-  computerChoice: PropTypes.string,
-  timer: PropTypes.number
+  userChoice: PropTypes.string.isRequired,
+  computerChoice: PropTypes.string.isRequired,
+  timer: PropTypes.number.isRequired
 };
 Buttons.defaultProps = {
   timer: 0,

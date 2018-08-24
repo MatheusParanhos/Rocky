@@ -67,10 +67,10 @@ export default class Result extends Component {
   }
 }
 Result.propTypes = {
-  countdown: PropTypes.number,
-  result: PropTypes.string,
-  userChoice: PropTypes.string,
-  computerChoice: PropTypes.string
+  countdown: PropTypes.number.isRequired,
+  result: PropTypes.string.isRequired,
+  userChoice: PropTypes.string.isRequired,
+  computerChoice: PropTypes.string.isRequired
 };
 Result.defaultProps = {
   countdown: 0,

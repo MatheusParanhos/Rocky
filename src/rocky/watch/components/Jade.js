@@ -9,7 +9,7 @@ export default class Jade extends Component {
       return (
         <FontAwesome
           name={`hand-scissors-o`}
-          size={50}
+          size={35}
           color={colors.primary}
         />
       );
@@ -18,7 +18,7 @@ export default class Jade extends Component {
       return (
         <FontAwesome
           name={`hand-${this.props.jadeChoice}-o`}
-          size={50}
+          size={35}
           color={colors.primary}
           style={{ transform: [{ rotate: "-90deg" }] }}
         />
@@ -39,7 +39,7 @@ export default class Jade extends Component {
   }
 }
 Jade.propTypes = {
-  jadeChoice: PropTypes.string
+  jadeChoice: PropTypes.string.isRequired
 };
 Jade.defaultProps = {
   jadeChoice: ""
