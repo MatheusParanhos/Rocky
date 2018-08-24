@@ -9,4 +9,4 @@ To run this project:
 * `react-native link`
 * open on xCode and build or 
 * `npm start`
-* `react-native run-ios`
+* `react-native run-ios` or `react-native run-android`
