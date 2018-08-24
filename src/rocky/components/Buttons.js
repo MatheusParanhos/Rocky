@@ -15,7 +15,7 @@ export default class Buttons extends Component {
         </View>
         <View style={styles.top}>
           <Paper onPress={this.props.onPaperPress}/>
-          <Scissors onpress={this.props.onScissorsPress}/>
+          <Scissors onPress={this.props.onScissorsPress}/>
         </View>
       </View>
     );

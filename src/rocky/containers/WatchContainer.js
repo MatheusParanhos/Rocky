@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { Button } from "../../shared/components/Button";
+import Jack from '../components/Jack'
+import Jade from '../components/Jade'
+ import JackJane from '../components/JackJane'
+import WatchResult from "../components/WatchResult";
 export default class WatchContainer extends Component {
   constructor(props) {
     super(props);
@@ -74,15 +78,15 @@ export default class WatchContainer extends Component {
     // Compare answers
     let compare = function(JackChoice, JadeChoice) {
       if (JackChoice === JadeChoice) {
-        result = "draw";
+        result = "Oh no, it's a draw!";
       } else if (JackChoice === "scissors" && JadeChoice === "paper") {
-        result = "Jack won";
+        result = "Jack won!";
       } else if (JackChoice === "rock" && JadeChoice === "scissors") {
-        result = "Jack won";
+        result = "Jack won!";
       } else if (JackChoice === "paper" && JadeChoice === "rock") {
-        result = "Jack won";
+        result = "Jack won!";
       } else {
-        result = "Jade won";
+        result = "Jade won!";
       }
     };
     // Call compare function
@@ -100,11 +104,10 @@ export default class WatchContainer extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>{this.state.result}</Text>
-        <Text>{this.state.JackChoice} {this.state.JadeChoice}</Text>
-        <Text>{this.state.countdown}</Text>
+        <WatchResult result={this.state.result} countdown={this.state.countdown}/>
+        <JackJane jackChoice={this.state.JackChoice} jadeChoice={this.state.JadeChoice}/>
         <Button
-          title={"Rock"}
+          title={"Rocky!"}
           onPress={() => {
             this.JokenPo();
           }}
@@ -118,6 +121,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white"
+    backgroundColor: "white",
   }
 });

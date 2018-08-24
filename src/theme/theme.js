@@ -16,7 +16,7 @@ export const colors = {
 
 export const fontFamily ={
   splash: 'SignatraDEMO',
-  primary: 'Proxima Nova'
+  primary: 'ProximaNova-Regular'
 }  
 
 export const fontSize = {

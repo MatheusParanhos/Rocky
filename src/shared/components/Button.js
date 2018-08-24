@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
-import { deviceWidth, colors, fontFamiliy } from "../../theme/theme";
+import { deviceWidth, colors, fontFamily } from "../../theme/theme";
 
 export class Button extends Component {
   render() {
@@ -9,7 +9,7 @@ export class Button extends Component {
         <View
           style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
         >
-          <Text style={{ color: colors.white }}> {this.props.title} </Text>
+          <Text style={styles.text}> {this.props.title} </Text>
         </View>
       </TouchableOpacity>
     );
@@ -22,5 +22,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: colors.primary
+  },
+  text:{
+   // fontFamily: fontFamily.primary,
+    color: colors.white,
+    fontWeight:'800'
   }
 });

@@ -26,12 +26,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white"
+    backgroundColor: colors.primary
   },
   text: { 
     fontSize: 100, 
     fontFamily: "SignatraDEMO",
-    color: colors.primary
+    color: colors.white
   }
 });
 
