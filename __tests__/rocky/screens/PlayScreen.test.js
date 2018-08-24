@@ -1,5 +1,5 @@
 import React from 'react';
-import PlayScreen from '../../../src/rocky/screens/PlayScreen';
+import PlayScreen from '../../../src/rocky/play/screens/PlayScreen';
 
 import renderer from 'react-test-renderer';
 

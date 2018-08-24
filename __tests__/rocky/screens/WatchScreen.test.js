@@ -1,5 +1,5 @@
 import React from 'react';
-import WatchScreen from '../../../src/rocky/screens/WatchScreen';
+import WatchScreen from '../../../src/rocky/watch/screens/WatchScreen';
 
 import renderer from 'react-test-renderer';
 

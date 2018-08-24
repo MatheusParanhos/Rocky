@@ -1,5 +1,5 @@
 import React from 'react';
-import SplashScreen from '../../../src/rocky/screens/SplashScreen';
+import SplashScreen from '../../../src/shared/SplashScreen';
 
 import renderer from 'react-test-renderer';
 

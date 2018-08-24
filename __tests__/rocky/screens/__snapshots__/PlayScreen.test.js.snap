@@ -63,9 +63,7 @@ exports[`renders correctly 1`] = `
               "fontSize": 50,
             }
           }
-        >
-          0
-        </Text>
+        />
         <Text
           style={
             Object {

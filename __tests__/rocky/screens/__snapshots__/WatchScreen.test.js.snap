@@ -44,9 +44,7 @@ exports[`renders correctly 1`] = `
             "width": 750,
           }
         }
-      >
-        0
-      </Text>
+      />
       <Text
         style={
           Object {
