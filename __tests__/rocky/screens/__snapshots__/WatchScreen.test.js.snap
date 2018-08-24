@@ -21,9 +21,148 @@ exports[`renders correctly 1`] = `
       }
     }
   >
-    <Text>
-       components 
-    </Text>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "height": 200,
+          "justifyContent": "flex-end",
+          "left": 0,
+          "position": "absolute",
+          "top": 0,
+          "width": 750,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontFamily": "SignatraDEMO",
+            "fontSize": 50,
+            "justifyContent": "center",
+            "textAlign": "center",
+            "width": 750,
+          }
+        }
+      >
+        0
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontFamily": "SignatraDEMO",
+            "fontSize": 50,
+            "justifyContent": "center",
+            "textAlign": "center",
+            "width": 750,
+          }
+        }
+      >
+        
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 0.8,
+          "flexDirection": "row",
+          "width": 750,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "flexDirection": "row",
+          }
+        }
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "testUri": "../../../src/rocky/medias/Jack.png",
+            }
+          }
+          style={
+            Object {
+              "height": 150,
+              "width": 150,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "testUri": "../../../src/rocky/medias/Jade.png",
+            }
+          }
+          style={
+            Object {
+              "height": 150,
+              "width": 150,
+            }
+          }
+        />
+      </View>
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "tomato",
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "width": 576.9230769230769,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontWeight": "800",
+            }
+          }
+        >
+           
+          Rocky!
+           
+        </Text>
+      </View>
+    </View>
   </View>
 </View>
 `;

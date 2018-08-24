@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Text, View, TouchableOpacity, StyleSheet, Image } from "react-native";
-import { deviceWidth, colors, fontFamiliy } from "../../theme/theme";
+import { View, StyleSheet, Image } from "react-native";
+import { colors } from "../../../theme/theme";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import PropTypes from "prop-types";
 
@@ -32,7 +32,7 @@ export default class Jack extends Component {
       <View style={styles.container}>
         <Image
           resizeMode={"contain"}
-          source={require("../medias/Jack.png")}
+          source={require("../../medias/Jack.png")}
           style={styles.imageContainer}
         />
         {this.renderIcon()}
@@ -40,7 +40,7 @@ export default class Jack extends Component {
     );
   }
 }
-Jack.PropTypes = {
+Jack.propTypes = {
   jackChoice: PropTypes.string
 };
 Jack.defaultProps = {

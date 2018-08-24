@@ -1,25 +1,25 @@
 import React, { Component } from "react";
 import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
-import { deviceWidth, colors, fontFamiliy } from "../../theme/theme";
+import { deviceWidth, colors } from "../../../theme/theme";
 import  FontAwesome  from 'react-native-vector-icons/FontAwesome'
-import PropTypes from 'prop-types'
-export default class Rock extends Component {
+import PropTypes from 'prop-types';
+export default class Scissors extends Component {
   render() {
     return (
       <TouchableOpacity style={styles.buttonContainer} onPress={this.props.onPress}>
         <View
           style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
         >
-          <FontAwesome name={'hand-rock-o'} size={50} color={colors.primary}/>
+          <FontAwesome name={'hand-scissors-o'} size={50} color={colors.primary}/>
         </View>
       </TouchableOpacity>
     );
   }
 }
-Rock.PropTypes = {
+Scissors.propTypes = {
   onPress: PropTypes.func.isRequired
 }
-Rock.defaultProps ={
+Scissors.defaultProps = {
   onPress: () => {}
 }
 const styles = StyleSheet.create({

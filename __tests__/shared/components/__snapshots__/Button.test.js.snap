@@ -34,6 +34,7 @@ exports[`renders correctly 1`] = `
       style={
         Object {
           "color": "white",
+          "fontWeight": "800",
         }
       }
     >

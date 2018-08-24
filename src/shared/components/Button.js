@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
-import { deviceWidth, colors, fontFamily } from "../../theme/theme";
+import { deviceWidth, colors } from "../../theme/theme";
 import PropTypes from 'prop-types'
 
 export class Button extends Component {
@@ -16,7 +16,7 @@ export class Button extends Component {
     );
   }
 }
-Button.PropTypes ={
+Button.propTypes ={
   onPress: PropTypes.func.isRequired
 }
 Button.defaultProps = {

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, TimerMixin } from "react-native";
-import { withNavigation } from "react-navigation";
-import { colors, fontFamily, fontSize } from '../../theme/theme'
+import { Text, View, StyleSheet } from "react-native";
+import { colors } from "../theme/theme";
 export class Splash extends Component {
   componentDidMount() {
     console.log(this.props);
@@ -28,8 +27,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: colors.primary
   },
-  text: { 
-    fontSize: 100, 
+  text: {
+    fontSize: 100,
     fontFamily: "SignatraDEMO",
     color: colors.white
   }

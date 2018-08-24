@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
-import { deviceWidth, colors, fontFamiliy } from "../../theme/theme";
+import { deviceWidth, colors } from "../../../theme/theme";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Proptypes from "prop-types";
 
@@ -20,7 +20,7 @@ export default class Paper extends Component {
     );
   }
 }
-Paper.Proptypes = {
+Paper.propTypes = {
   onPress: Proptypes.func.isRequired
 };
 Paper.defaultProps = {

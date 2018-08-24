@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
-import { deviceWidth, colors, fontFamily } from "../../theme/theme";
+import { deviceWidth, colors, fontFamily } from "../../../theme/theme";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import PropTypes from "prop-types";
 

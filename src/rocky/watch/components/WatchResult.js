@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Text, View, TouchableOpacity, StyleSheet, Image } from "react-native";
-import { deviceWidth, colors, fontFamily } from "../../theme/theme";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { Text, View, StyleSheet } from "react-native";
+import { deviceWidth,  fontFamily } from "../../../theme/theme";
 import PropTypes from 'prop-types';
 export default class WatchResult extends Component {
   render() {
@@ -13,7 +12,7 @@ export default class WatchResult extends Component {
     );
   }
 }
-WatchResult.PropTypes = {
+WatchResult.propTypes = {
   countdown: PropTypes.number,
   result: PropTypes.string
 }

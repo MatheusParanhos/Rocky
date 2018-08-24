@@ -1,28 +1,28 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet } from "react-native";
-import { Button } from "../../shared/components/Button";
-import Scissors from "../components/ScissorsButton";
-import Paper from "../components/PaperButton";
-import Rock from "../components/RockButton";
-import { deviceWidth } from "../../theme/theme";
+import { View, StyleSheet } from "react-native";
+import { deviceWidth } from "../../../theme/theme";
 import Buttons from "../components/Buttons";
 import Result from "../components/Result";
+
 export default class PlayContainer extends Component {
   constructor(props) {
     super(props);
+    
     // Initialize states
     this.state = {
       userChoice: "",
       computerChoice: "",
       result: "",
-      countdown: "",
+      countdown: null
     };
   }
-  // componentDidMount() {
-  //   this.JokenPo("rock");
-  // }
 
-  //** JokenPo function
+  /** 
+   *   JokenPo function 
+   * 
+   * 
+  */
+
   JokenPo(userChoice) {
     // Reinitialize state
     this.setState({
@@ -63,7 +63,7 @@ export default class PlayContainer extends Component {
       if (this.state.countdown === 1) clearInterval(this.handleClock);
 
       this.setState(prevState => ({ countdown: prevState.countdown - 1 }));
-      if (this.state.countdown === 0) this.setState({ countdown: "" });
+      if (this.state.countdown === 0) this.setState({ countdown: null });
     };
 
     // Start Countdown

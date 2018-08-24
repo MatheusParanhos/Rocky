@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Text, View, TouchableOpacity, StyleSheet, Image } from "react-native";
-import { deviceWidth, colors, fontFamiliy } from "../../theme/theme";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { View, StyleSheet } from "react-native";
+import { deviceWidth } from "../../../theme/theme";
 import Jack from './Jack'
 import Jade from './Jade'
 import PropTypes from 'prop-types'
@@ -16,7 +15,7 @@ export default class JackJade extends Component {
     );
   }
 }
-JackJade.PropTypes ={
+JackJade.propTypes ={
   jadeChoice: PropTypes.string,
   jackChoice: PropTypes.string
 }

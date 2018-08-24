@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet } from "react-native";
-import { Button } from "../../shared/components/Button";
-import Jack from '../components/Jack'
-import Jade from '../components/Jade'
- import JackJane from '../components/JackJade'
+import { View, StyleSheet } from "react-native";
+import { Button } from "../../../shared/components/Button";
+import JackJane from "../components/JackJade";
 import WatchResult from "../components/WatchResult";
 export default class WatchContainer extends Component {
   constructor(props) {
@@ -13,9 +11,15 @@ export default class WatchContainer extends Component {
       JackChoice: "",
       JadeChoice: "",
       result: "",
-      countdown: ""
+      countdown: null
     };
   }
+  /** 
+   *   JokenPo function 
+   * 
+   * 
+  */
+ 
   JokenPo() {
     // Reinitialize state
     this.setState({
@@ -69,7 +73,7 @@ export default class WatchContainer extends Component {
     decrementClock = () => {
       if (this.state.countdown === 1) clearInterval(this.handleClock);
       this.setState(prevState => ({ countdown: prevState.countdown - 1 }));
-      if (this.state.countdown === 0) this.setState({ countdown: "" });
+      if (this.state.countdown === 0) this.setState({ countdown: null });
     };
 
     // Start Countdown
@@ -104,8 +108,14 @@ export default class WatchContainer extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <WatchResult result={this.state.result} countdown={this.state.countdown}/>
-        <JackJane jackChoice={this.state.JackChoice} jadeChoice={this.state.JadeChoice}/>
+        <WatchResult
+          result={this.state.result}
+          countdown={this.state.countdown}
+        />
+        <JackJane
+          jackChoice={this.state.JackChoice}
+          jadeChoice={this.state.JadeChoice}
+        />
         <Button
           title={"Rocky!"}
           onPress={() => {
@@ -121,6 +131,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white",
+    backgroundColor: "white"
   }
 });

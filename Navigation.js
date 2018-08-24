@@ -4,9 +4,9 @@ import {
   TabNavigator
 } from "react-navigation";
 import React from "react";
-import PlayScreen from "./src/rocky/screens/PlayScreen";
-import WatchScreen from "./src/rocky/screens/WatchScreen";
-import Splash from "./src/rocky/screens/SplashScreen";
+import PlayScreen from "./src/rocky/play/screens/PlayScreen";
+import WatchScreen from "./src/rocky/watch/screens/WatchScreen";
+import Splash from "./src/shared/SplashScreen";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 

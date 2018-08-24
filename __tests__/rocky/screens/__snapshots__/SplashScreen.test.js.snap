@@ -5,14 +5,22 @@ exports[`renders correctly 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "white",
+      "backgroundColor": "tomato",
       "flex": 1,
       "justifyContent": "center",
     }
   }
 >
-  <Text>
-     Splash 
+  <Text
+    style={
+      Object {
+        "color": "white",
+        "fontFamily": "SignatraDEMO",
+        "fontSize": 100,
+      }
+    }
+  >
+     Rocky! 
   </Text>
 </View>
 `;
