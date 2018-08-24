@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
 import { deviceWidth, colors, fontFamiliy } from "../../theme/theme";
 import  FontAwesome  from 'react-native-vector-icons/FontAwesome'
-
+import PropTypes from 'prop-types'
 export default class Rock extends Component {
   render() {
     return (
@@ -15,6 +15,12 @@ export default class Rock extends Component {
       </TouchableOpacity>
     );
   }
+}
+Rock.PropTypes = {
+  onPress: PropTypes.func.isRequired
+}
+Rock.defaultProps ={
+  onPress: () => {}
 }
 const styles = StyleSheet.create({
   buttonContainer: {

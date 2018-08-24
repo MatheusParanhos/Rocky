@@ -4,8 +4,9 @@ import { deviceWidth, colors, fontFamiliy } from "../../theme/theme";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Jack from './Jack'
 import Jade from './Jade'
+import PropTypes from 'prop-types'
 
-export default class JackJane extends Component {
+export default class JackJade extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -15,11 +16,19 @@ export default class JackJane extends Component {
     );
   }
 }
+JackJade.PropTypes ={
+  jadeChoice: PropTypes.string,
+  jackChoice: PropTypes.string
+}
+JackJade.defaultProps = {
+  jadeChoice: '',
+  jackChoice: ''
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: .8,
     width:deviceWidth,
-  //  backgroundColor: "blue",
     flexDirection:'row'
   },
   imageContainer: {

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
 import { deviceWidth, colors, fontFamiliy } from "../../theme/theme";
 import  FontAwesome  from 'react-native-vector-icons/FontAwesome'
-
+import PropTypes from 'prop-types';
 export default class Scissors extends Component {
   render() {
     return (
@@ -15,6 +15,12 @@ export default class Scissors extends Component {
       </TouchableOpacity>
     );
   }
+}
+Scissors.PropTypes = {
+  onPress: PropTypes.func.isRequired
+}
+Scissors.defaultProps = {
+  onPress: () => {}
 }
 const styles = StyleSheet.create({
   buttonContainer: {

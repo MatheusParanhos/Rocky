@@ -11,7 +11,6 @@ export const colors = {
     gray: 'gray',
     lightGray: '#afafaf',
     white: 'white',
-    gold: '#ff583a'
   }
 
 export const fontFamily ={

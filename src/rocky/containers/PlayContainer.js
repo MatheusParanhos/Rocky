@@ -15,18 +15,20 @@ export default class PlayContainer extends Component {
       userChoice: "",
       computerChoice: "",
       result: "",
-      countdown: ""
+      countdown: "",
     };
   }
-
   // componentDidMount() {
   //   this.JokenPo("rock");
   // }
+
   //** JokenPo function
   JokenPo(userChoice) {
     // Reinitialize state
     this.setState({
-      result: ""
+      result: "",
+      userChoice: "",
+      computerChoice: "",
     });
     // Initialize variables
     let result = "";
@@ -59,6 +61,7 @@ export default class PlayContainer extends Component {
 
     decrementClock = () => {
       if (this.state.countdown === 1) clearInterval(this.handleClock);
+
       this.setState(prevState => ({ countdown: prevState.countdown - 1 }));
       if (this.state.countdown === 0) this.setState({ countdown: "" });
     };
@@ -99,8 +102,9 @@ export default class PlayContainer extends Component {
         <View style={styles.top} />
         <View style={styles.bottom}>
           <Result
-            choice={this.state.computerChoice}
-            timer={this.state.countdown}
+            computerChoice={this.state.computerChoice}
+            userChoice={this.state.userChoice}
+            countdown={this.state.countdown}
             result={this.state.result}
           />
 
@@ -129,12 +133,9 @@ const styles = StyleSheet.create({
   },
   top: {
     flex: 1
-    // backgroundColor: 'red'
   },
   bottom: {
     flex: 1,
     justifyContent: "flex-end"
-    // width:'100%',
-    //backgroundColor: 'blue'
   }
 });

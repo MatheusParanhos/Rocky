@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Text, View, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { deviceWidth, colors, fontFamiliy } from "../../theme/theme";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-
+import PropTypes from 'prop-types';
 export default class Jade extends Component {
     renderIcon = () => {
         if (this.props.jadeChoice === 'scissors') {
@@ -39,6 +39,12 @@ export default class Jade extends Component {
       </View>
     );
   }
+}
+Jade.PropTypes ={
+  jadeChoice: PropTypes.string
+}
+Jade.defaultProps = {
+  jadeChoice: ''
 }
 const styles = StyleSheet.create({
   container: {

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
 import { deviceWidth, colors, fontFamily } from "../../theme/theme";
+import PropTypes from 'prop-types'
 
 export class Button extends Component {
   render() {
@@ -14,6 +15,12 @@ export class Button extends Component {
       </TouchableOpacity>
     );
   }
+}
+Button.PropTypes ={
+  onPress: PropTypes.func.isRequired
+}
+Button.defaultProps = {
+  onPress: () => {}
 }
 const styles = StyleSheet.create({
   buttonContainer: {

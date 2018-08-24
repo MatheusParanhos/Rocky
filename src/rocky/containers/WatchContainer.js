@@ -3,7 +3,7 @@ import { Text, View, StyleSheet } from "react-native";
 import { Button } from "../../shared/components/Button";
 import Jack from '../components/Jack'
 import Jade from '../components/Jade'
- import JackJane from '../components/JackJane'
+ import JackJane from '../components/JackJade'
 import WatchResult from "../components/WatchResult";
 export default class WatchContainer extends Component {
   constructor(props) {

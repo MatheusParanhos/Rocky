@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
 import { deviceWidth, colors, fontFamiliy } from "../../theme/theme";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import PropTypes from 'prop-types';
 import Scissors from "./ScissorsButton";
 import Paper from "./PaperButton";
 import Rock from "./RockButton";
@@ -10,10 +11,11 @@ export default class Buttons extends Component {
     return (
       <View style={styles.buttonsContainer}>
         
+        {/* <View style={styles.bottom}>
+          
+        </View> */}
         <View style={styles.bottom}>
-          <Rock onPress={this.props.onRockPress}/>
-        </View>
-        <View style={styles.top}>
+        <Rock onPress={this.props.onRockPress}/>
           <Paper onPress={this.props.onPaperPress}/>
           <Scissors onPress={this.props.onScissorsPress}/>
         </View>
@@ -21,6 +23,23 @@ export default class Buttons extends Component {
     );
   }
 }
+Buttons.propTypes = {
+  onRockPress: PropTypes.func.isRequired,
+  onPaperPress: PropTypes.func.isRequired,
+  onScissorsPress: PropTypes.func.isRequired,
+  userChoice: PropTypes.string,
+  computerChoice: PropTypes.string,
+  timer: PropTypes.number,
+};
+Buttons.defaultProps = {
+  timer: 0,
+  result: "",
+  userChoice: "",
+  computerChoice: "",
+  onRockPress: () => {},
+  onPaperPress: () => {},
+  onScissorsPress: () => {}
+};
 const styles = StyleSheet.create({
   buttonsContainer: {
     height: 300,
@@ -30,19 +49,13 @@ const styles = StyleSheet.create({
    // borderRadius: 25,
    flexDirection:'column'
   },
-  top: {
-      flex:1,
-    height: 100,
-    width: deviceWidth / 2,
-    flexDirection: "row",
-    // backgroundColor: "yellow"
-  },
   bottom: {
       flex:1,
     height: 100,
     width: deviceWidth,
+    flexDirection: "row",
    // backgroundColor: "orange",
     alignItems:'center',
-    justifyContent:'center',
+    justifyContent:'space-around',
   }
 });
