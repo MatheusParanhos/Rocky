@@ -7,7 +7,7 @@ import Result from "../components/Result";
 export default class PlayContainer extends Component {
   constructor(props) {
     super(props);
-    
+
     // Initialize states
     this.state = {
       userChoice: "",
@@ -17,18 +17,18 @@ export default class PlayContainer extends Component {
     };
   }
 
-  /** 
-   *   JokenPo function 
-   * 
-   * 
-  */
+  /**
+   *   JokenPo function
+   *
+   *
+   */
 
   JokenPo(userChoice) {
     // Reinitialize state
     this.setState({
       result: "",
       userChoice: "",
-      computerChoice: "",
+      computerChoice: ""
     });
     // Initialize variables
     let result = "";
@@ -70,17 +70,32 @@ export default class PlayContainer extends Component {
     startCountdown();
 
     // Compare answers
+    // let compare = function(computerChoice, userChoice) {
+    //   if (computerChoice === userChoice) {
+    //     result = "Fair enough, it's a draw!";
+    //   } else if (computerChoice === "scissors" && userChoice === "paper") {
+    //     result = "Oh, no you lost!";
+    //   } else if (computerChoice === "rock" && userChoice === "scissors") {
+    //     result = "Oh, no you lost!";
+    //   } else if (computerChoice === "paper" && userChoice === "rock") {
+    //     result = "Oh, no you lost!";
+    //   } else {
+    //     result = "Nice, you won!";
+    //   }
+    // };
     let compare = function(computerChoice, userChoice) {
+      // Here we define a constraint that will dictate rules for the winner
+      // This way we can achieve the so called 'extensibility' of code,
+      // becoming easier to scale into more/different set of rules
+      let constraint = { paper: "rock", scissors: "paper", rock: "scissors" };
+
+      if (userChoice === constraint[computerChoice]) {
+        result = "Oh no, you lost!";
+      } else {
+        result = "Nice, you won!!";
+      }
       if (computerChoice === userChoice) {
         result = "Fair enough, it's a draw!";
-      } else if (computerChoice === "scissors" && userChoice === "paper") {
-        result = "Oh, no you lost!";
-      } else if (computerChoice === "rock" && userChoice === "scissors") {
-        result = "Oh, no you lost!";
-      } else if (computerChoice === "paper" && userChoice === "rock") {
-        result = "Oh, no you lost!";
-      } else {
-        result = "Nice, you won!";
       }
     };
     // Call compare function

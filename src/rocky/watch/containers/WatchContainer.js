@@ -3,6 +3,7 @@ import { View, StyleSheet } from "react-native";
 import { Button } from "../../../shared/components/Button";
 import JackJane from "../components/JackJade";
 import WatchResult from "../components/WatchResult";
+import Jack from "../components/Jack";
 export default class WatchContainer extends Component {
   constructor(props) {
     super(props);
@@ -14,12 +15,12 @@ export default class WatchContainer extends Component {
       countdown: null
     };
   }
-  /** 
-   *   JokenPo function 
-   * 
-   * 
-  */
- 
+  /**
+   *   JokenPo function
+   *
+   *
+   */
+
   JokenPo() {
     // Reinitialize state
     this.setState({
@@ -80,17 +81,32 @@ export default class WatchContainer extends Component {
     startCountdown();
 
     // Compare answers
+    // let compare = function(JackChoice, JadeChoice) {
+    //   if (JackChoice === JadeChoice) {
+    //     result = "Oh no, it's a draw!";
+    //   } else if (JackChoice === "scissors" && JadeChoice === "paper") {
+    //     result = "Jack won!";
+    //   } else if (JackChoice === "rock" && JadeChoice === "scissors") {
+    //     result = "Jack won!";
+    //   } else if (JackChoice === "paper" && JadeChoice === "rock") {
+    //     result = "Jack won!";
+    //   } else {
+    //     result = "Jade won!";
+    //   }
+    // };
     let compare = function(JackChoice, JadeChoice) {
-      if (JackChoice === JadeChoice) {
-        result = "Oh no, it's a draw!";
-      } else if (JackChoice === "scissors" && JadeChoice === "paper") {
-        result = "Jack won!";
-      } else if (JackChoice === "rock" && JadeChoice === "scissors") {
-        result = "Jack won!";
-      } else if (JackChoice === "paper" && JadeChoice === "rock") {
+      // Here we define a constraint that will dictate rules for the winner
+      // This way we can achieve the so called 'extensibility' of code,
+      // becoming easier to scale into more/different set of rules
+      let constraint = { paper: "rock", scissors: "paper", rock: "scissors" };
+
+      if (JadeChoice === constraint[JackChoice]) {
         result = "Jack won!";
       } else {
         result = "Jade won!";
+      }
+      if (JackChoice === JadeChoice) {
+        result = "Oh no, it's a draw!";
       }
     };
     // Call compare function
