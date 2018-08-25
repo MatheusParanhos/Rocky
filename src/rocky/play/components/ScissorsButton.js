@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
     width: deviceWidth / 2,
     justifyContent: "center",
     alignItems: "center",
-   // backgroundColor: colors.primary,
     borderRadius:25
   }
 });

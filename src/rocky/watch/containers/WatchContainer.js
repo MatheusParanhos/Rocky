@@ -3,7 +3,7 @@ import { View, StyleSheet } from "react-native";
 import { Button } from "../../../shared/components/Button";
 import JackJane from "../components/JackJade";
 import WatchResult from "../components/WatchResult";
-import Jack from "../components/Jack";
+
 export default class WatchContainer extends Component {
   constructor(props) {
     super(props);
@@ -74,12 +74,14 @@ export default class WatchContainer extends Component {
     decrementClock = () => {
       if (this.state.countdown === 1) clearInterval(this.handleClock);
       this.setState(prevState => ({ countdown: prevState.countdown - 1 }));
-      if (this.state.countdown === 0) this.setState({ countdown: null });
+      if (this.state.countdown === 0) this.setState({ countdown: null})
+      if (this.state.countdown < 0) this.setState({ countdown: null})
     };
 
     // Start Countdown
     startCountdown();
 
+    // -old solution-
     // Compare answers
     // let compare = function(JackChoice, JadeChoice) {
     //   if (JackChoice === JadeChoice) {

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { View, StyleSheet } from "react-native";
-import { deviceWidth } from "../../../theme/theme";
+import { View, StyleSheet, Text } from "react-native";
+import { deviceWidth, fontFamily, colors } from "../../../theme/theme";
 import Buttons from "../components/Buttons";
 import Result from "../components/Result";
-
+import PlayAgain from "../components/PlayAgain";
 export default class PlayContainer extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +13,9 @@ export default class PlayContainer extends Component {
       userChoice: "",
       computerChoice: "",
       result: "",
-      countdown: null
+      countdown: null,
+      isPlaying: false,
+      firstTime: true
     };
   }
 
@@ -28,7 +30,8 @@ export default class PlayContainer extends Component {
     this.setState({
       result: "",
       userChoice: "",
-      computerChoice: ""
+      computerChoice: "",
+      isPlaying: true
     });
     // Initialize variables
     let result = "";
@@ -61,28 +64,14 @@ export default class PlayContainer extends Component {
 
     decrementClock = () => {
       if (this.state.countdown === 1) clearInterval(this.handleClock);
-
       this.setState(prevState => ({ countdown: prevState.countdown - 1 }));
       if (this.state.countdown === 0) this.setState({ countdown: null });
+      if (this.state.countdown < 0) this.setState({ countdown: null });
     };
 
     // Start Countdown
     startCountdown();
 
-    // Compare answers
-    // let compare = function(computerChoice, userChoice) {
-    //   if (computerChoice === userChoice) {
-    //     result = "Fair enough, it's a draw!";
-    //   } else if (computerChoice === "scissors" && userChoice === "paper") {
-    //     result = "Oh, no you lost!";
-    //   } else if (computerChoice === "rock" && userChoice === "scissors") {
-    //     result = "Oh, no you lost!";
-    //   } else if (computerChoice === "paper" && userChoice === "rock") {
-    //     result = "Oh, no you lost!";
-    //   } else {
-    //     result = "Nice, you won!";
-    //   }
-    // };
     let compare = function(computerChoice, userChoice) {
       // Here we define a constraint that will dictate rules for the winner
       // This way we can achieve the so called 'extensibility' of code,
@@ -106,7 +95,9 @@ export default class PlayContainer extends Component {
       this.setState({
         userChoice,
         computerChoice,
-        result
+        result,
+        isPlaying: false,
+        firstTime: false
       });
     }, 3000);
   }
@@ -122,19 +113,24 @@ export default class PlayContainer extends Component {
             countdown={this.state.countdown}
             result={this.state.result}
           />
-
-          <Buttons
-            {...this.props}
-            onScissorsPress={() => {
-              this.JokenPo("scissors");
-            }}
-            onPaperPress={() => {
-              this.JokenPo("paper");
-            }}
-            onRockPress={() => {
-              this.JokenPo("rock");
-            }}
-          />
+          {this.state.firstTime === false &&
+            this.state.isPlaying === false && (
+              <PlayAgain/>
+            )}
+          {this.state.isPlaying === false && (
+            <Buttons
+              {...this.props}
+              onScissorsPress={() => {
+                this.JokenPo("scissors");
+              }}
+              onPaperPress={() => {
+                this.JokenPo("paper");
+              }}
+              onRockPress={() => {
+                this.JokenPo("rock");
+              }}
+            />
+          )}
         </View>
       </View>
     );

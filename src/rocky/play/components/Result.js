@@ -67,8 +67,8 @@ export default class Result extends Component {
   }
 }
 Result.propTypes = {
-  countdown: PropTypes.number.isRequired,
-  result: PropTypes.string.isRequired,
+  countdown: PropTypes.number,
+  result: PropTypes.string,
   userChoice: PropTypes.string.isRequired,
   computerChoice: PropTypes.string.isRequired
 };
@@ -81,11 +81,13 @@ Result.defaultProps = {
 
 const styles = StyleSheet.create({
   container: {
+    position:'absolute',
+    top:-200,
+    left:0,
     height: 200,
     width: deviceWidth,
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 25
   },
   text: {
     fontFamily: fontFamily.splash,

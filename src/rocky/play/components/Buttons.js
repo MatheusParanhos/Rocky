@@ -41,7 +41,7 @@ Buttons.defaultProps = {
 };
 const styles = StyleSheet.create({
   buttonsContainer: {
-    height: 300,
+    height: 150,
     width: "100%",
     //  backgroundColor: colors.gray,
 
