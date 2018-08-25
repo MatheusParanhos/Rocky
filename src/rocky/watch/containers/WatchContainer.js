@@ -12,7 +12,8 @@ export default class WatchContainer extends Component {
       JackChoice: "",
       JadeChoice: "",
       result: "",
-      countdown: null
+      countdown: null,
+      isPlaying: false
     };
   }
   /**
@@ -26,7 +27,8 @@ export default class WatchContainer extends Component {
     this.setState({
       result: "",
       JackChoice: "",
-      JadeChoice: ""
+      JadeChoice: "",
+      isPlaying:true
     });
     // Initialize variables
     let result = "";
@@ -119,7 +121,8 @@ export default class WatchContainer extends Component {
       this.setState({
         JadeChoice,
         JackChoice,
-        result
+        result,
+        isPlaying: false
       });
     }, 3000);
   }
@@ -134,12 +137,12 @@ export default class WatchContainer extends Component {
           jackChoice={this.state.JackChoice}
           jadeChoice={this.state.JadeChoice}
         />
-        <Button
+        {this.state.isPlaying === false && (<Button
           title={"Rocky!"}
           onPress={() => {
             this.JokenPo();
           }}
-        />
+        />)}
       </View>
     );
   }

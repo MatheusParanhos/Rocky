@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
-import { deviceWidth, colors } from "../../theme/theme";
+import { deviceWidth, colors, deviceHeight } from "../../theme/theme";
 import PropTypes from 'prop-types'
 
 export class Button extends Component {
@@ -24,8 +24,11 @@ Button.defaultProps = {
 }
 const styles = StyleSheet.create({
   buttonContainer: {
-    height: 50,
-    width: deviceWidth / 1.3,
+    position:'absolute',
+    top:deviceHeight - 200,
+    left: 0,
+    height: 60,
+    width: deviceWidth ,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: colors.primary
