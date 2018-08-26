@@ -17,26 +17,31 @@ export default class WatchContainer extends Component {
     };
   }
   /**
-   *   JokenPo function
-   *
+   * Reset previous state
    *
    */
-
-  JokenPo() {
+  resetState() {
     // Reinitialize state
-    this.setState({
-      result: "",
-      JackChoice: "",
-      JadeChoice: "",
-      isPlaying: true
-    });
+    this.setState(
+      {
+        result: "",
+        JackChoice: "",
+        JadeChoice: "",
+        isPlaying: true
+      },
+      () => this.generateChoice()
+    );
+  }
+  /**
+   * Generate computer choice function
+   *
+   */
+  generateChoice() {
     // Initialize variables
-    let result = "";
     let JadeChoice = "";
-    let JackChoice = "";
+
     // Generate a random number
     const randomNumber = Math.floor(Math.random() * 3);
-
     switch (randomNumber) {
       case 0:
         JadeChoice = "rock";
@@ -48,10 +53,8 @@ export default class WatchContainer extends Component {
         JadeChoice = "scissors";
         break;
     }
-
-    const randomNumber2 = Math.floor(Math.random() * 3);
-
-    switch (randomNumber2) {
+    const randomNumber1 = Math.floor(Math.random() * 3);
+    switch (randomNumber1) {
       case 0:
         JackChoice = "rock";
         break;
@@ -62,17 +65,61 @@ export default class WatchContainer extends Component {
         JackChoice = "scissors";
         break;
     }
-    // Initialize Countdown
-    this.setState({
-      countdown: 3
-    });
+    this.JokenPo(JackChoice, JadeChoice);
+  }
+  /**
+   * Joken Po function
+   * @param {string} JackChoice
+   * @param {string} JadeChoice
+    
+   * Here we define a constraint that will dictate rules for the winner
+     This way we can achieve the so called 'extensibility' of code,
+     becoming easier to scale into more/different set of rules
+   */
+  JokenPo(JackChoice, JadeChoice) {
+    let constraint = { paper: "rock", scissors: "paper", rock: "scissors" };
+    if (JackChoice === constraint[JadeChoice]) {
+      result = "Jade won!!";
+    } else {
+      result = "Jack won!!";
+    }
+    if (JadeChoice === JackChoice) {
+      result = "Fair enough, it's a draw!";
+    }
+    // Call setCountdown function
+    this.setCountDown(JackChoice, JadeChoice, result);
+  }
 
+  /**
+   * Set Countdown
+   * @param {string} JackChoice
+   * @param {string} JadeChoice
+   * @param {string} result
+   */
+  setCountDown(JackChoice, JadeChoice, result) {
+    // Initialize Countdown
+    this.setState(
+      {
+        countdown: 3
+      },
+      () => this.countdownAndShowResults(JackChoice, JadeChoice, result)
+    );
+  }
+
+  countdownAndShowResults(JackChoice, JadeChoice, result) {
+    /**
+     * Timer Functions
+     * @param
+     */
     startCountdown = () => {
       this.handleClock = setInterval(() => {
         decrementClock();
       }, 1000);
     };
+    // Start Countdown
+    startCountdown();
 
+    // Decrement clock states to avoid unwanted behaviours
     decrementClock = () => {
       if (this.state.countdown === 1) clearInterval(this.handleClock);
       this.setState(prevState => ({ countdown: prevState.countdown - 1 }));
@@ -80,52 +127,18 @@ export default class WatchContainer extends Component {
       if (this.state.countdown < 0) this.setState({ countdown: null });
     };
 
-    // Start Countdown
-    startCountdown();
-
-    // -old solution-
-    // Compare answers
-    // let compare = function(JackChoice, JadeChoice) {
-    //   if (JackChoice === JadeChoice) {
-    //     result = "Oh no, it's a draw!";
-    //   } else if (JackChoice === "scissors" && JadeChoice === "paper") {
-    //     result = "Jack won!";
-    //   } else if (JackChoice === "rock" && JadeChoice === "scissors") {
-    //     result = "Jack won!";
-    //   } else if (JackChoice === "paper" && JadeChoice === "rock") {
-    //     result = "Jack won!";
-    //   } else {
-    //     result = "Jade won!";
-    //   }
-    // };
-    let compare = function(JackChoice, JadeChoice) {
-      // Here we define a constraint that will dictate rules for the winner
-      // This way we can achieve the so called 'extensibility' of code,
-      // becoming easier to scale into more/different set of rules
-      let constraint = { paper: "rock", scissors: "paper", rock: "scissors" };
-
-      if (JadeChoice === constraint[JackChoice]) {
-        result = "Jack won!";
-      } else {
-        result = "Jade won!";
-      }
-      if (JackChoice === JadeChoice) {
-        result = "Oh no, it's a draw!";
-      }
-    };
-    // Call compare function
-    compare(JackChoice, JadeChoice);
-
     // Set state of result
     this.countdown = setTimeout(() => {
       this.setState({
-        JadeChoice,
         JackChoice,
+        JadeChoice,
         result,
-        isPlaying: false
+        isPlaying: false,
+        firstTime: false
       });
     }, 3000);
   }
+
   render() {
     return (
       <View style={styles.container}>
@@ -141,7 +154,7 @@ export default class WatchContainer extends Component {
           <Button
             title={"Rocky!"}
             onPress={() => {
-              this.JokenPo();
+              this.resetState();
             }}
           />
         )}

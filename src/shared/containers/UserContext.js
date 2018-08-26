@@ -22,14 +22,18 @@ export default class UserProvider extends Component {
     super();
     // this.persistContext = new PersistContext("UserContext", initialState);
     //this.state = this.persistContext.getState();
-    this.state = {
-      user: AsyncStorage.getItem("UserContext")
-    };
+    // this.state = {
+    //   user: AsyncStorage.getItem("UserContext")
+    // };
+    this.state ={
+      user: ''
+    }
     //this.state = this.getState();
   }
   componentDidMount() {
     // this.setState({user:'baraka'})
-     this.getState();
+     // this.getState();
+    //  AsyncStorage.clear()
   }
   componentDidUpdate() {
     this.persistState({ ...this.state });
