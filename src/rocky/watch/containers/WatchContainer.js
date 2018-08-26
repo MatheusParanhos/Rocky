@@ -28,7 +28,7 @@ export default class WatchContainer extends Component {
       result: "",
       JackChoice: "",
       JadeChoice: "",
-      isPlaying:true
+      isPlaying: true
     });
     // Initialize variables
     let result = "";
@@ -76,8 +76,8 @@ export default class WatchContainer extends Component {
     decrementClock = () => {
       if (this.state.countdown === 1) clearInterval(this.handleClock);
       this.setState(prevState => ({ countdown: prevState.countdown - 1 }));
-      if (this.state.countdown === 0) this.setState({ countdown: null})
-      if (this.state.countdown < 0) this.setState({ countdown: null})
+      if (this.state.countdown === 0) this.setState({ countdown: null });
+      if (this.state.countdown < 0) this.setState({ countdown: null });
     };
 
     // Start Countdown
@@ -137,12 +137,14 @@ export default class WatchContainer extends Component {
           jackChoice={this.state.JackChoice}
           jadeChoice={this.state.JadeChoice}
         />
-        {this.state.isPlaying === false && (<Button
-          title={"Rocky!"}
-          onPress={() => {
-            this.JokenPo();
-          }}
-        />)}
+        {this.state.isPlaying === false && (
+          <Button
+            title={"Rocky!"}
+            onPress={() => {
+              this.JokenPo();
+            }}
+          />
+        )}
       </View>
     );
   }

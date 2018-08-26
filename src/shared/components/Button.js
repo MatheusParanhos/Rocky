@@ -34,7 +34,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary
   },
   text:{
-   // fontFamily: fontFamily.primary,
     color: colors.white,
     fontWeight:'800'
   }
