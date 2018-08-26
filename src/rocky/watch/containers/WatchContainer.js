@@ -30,7 +30,9 @@ export default class WatchContainer extends Component {
         isPlaying: true
       },
       () => this.generateChoice()
+      
     );
+    return true
   }
   /**
    * Generate computer choice function
@@ -39,6 +41,7 @@ export default class WatchContainer extends Component {
   generateChoice() {
     // Initialize variables
     let JadeChoice = "";
+    let JackChoice = "";
 
     // Generate a random number
     const randomNumber = Math.floor(Math.random() * 3);
@@ -65,7 +68,8 @@ export default class WatchContainer extends Component {
         JackChoice = "scissors";
         break;
     }
-    this.JokenPo(JackChoice, JadeChoice);
+    this.jokenPo(JackChoice, JadeChoice);
+    return true
   }
   /**
    * Joken Po function
@@ -76,7 +80,8 @@ export default class WatchContainer extends Component {
      This way we can achieve the so called 'extensibility' of code,
      becoming easier to scale into more/different set of rules
    */
-  JokenPo(JackChoice, JadeChoice) {
+  jokenPo(JackChoice, JadeChoice) {
+    let result = ''
     let constraint = { paper: "rock", scissors: "paper", rock: "scissors" };
     if (JackChoice === constraint[JadeChoice]) {
       result = "Jade won!!";
@@ -88,6 +93,7 @@ export default class WatchContainer extends Component {
     }
     // Call setCountdown function
     this.setCountDown(JackChoice, JadeChoice, result);
+    return true
   }
 
   /**
@@ -111,16 +117,16 @@ export default class WatchContainer extends Component {
      * Timer Functions
      * @param
      */
-    startCountdown = () => {
+    this.startCountdown = () => {
       this.handleClock = setInterval(() => {
-        decrementClock();
+        this.decrementClock();
       }, 1000);
     };
     // Start Countdown
-    startCountdown();
+    this.startCountdown();
 
     // Decrement clock states to avoid unwanted behaviours
-    decrementClock = () => {
+    this.decrementClock = () => {
       if (this.state.countdown === 1) clearInterval(this.handleClock);
       this.setState(prevState => ({ countdown: prevState.countdown - 1 }));
       if (this.state.countdown === 0) this.setState({ countdown: null });

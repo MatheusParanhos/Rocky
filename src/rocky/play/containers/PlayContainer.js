@@ -31,8 +31,9 @@ export default class PlayContainer extends Component {
         computerChoice: "",
         isPlaying: true
       },
-      () => this.generateComputerChoice(userChoice)
+       () => this.generateComputerChoice(userChoice)
     );
+    return true
   }
   /**
    * Generate computer choice function
@@ -56,6 +57,7 @@ export default class PlayContainer extends Component {
         break;
     }
     this.jokenPo(userChoice, computerChoice);
+    return true
   }
   /**
    * Joken Po function
@@ -67,6 +69,7 @@ export default class PlayContainer extends Component {
      becoming easier to scale into more/different set of rules
    */
   jokenPo(userChoice, computerChoice) {
+    let result = ''
     let constraint = { paper: "rock", scissors: "paper", rock: "scissors" };
     if (userChoice === constraint[computerChoice]) {
       result = "Oh no, you lost!";
@@ -78,6 +81,7 @@ export default class PlayContainer extends Component {
     }
     // Call setCountdown function
     this.setCountDown(userChoice, computerChoice, result);
+   return true
   }
 
   /**
@@ -101,16 +105,16 @@ export default class PlayContainer extends Component {
      * Timer Functions
      * @param
      */
-    startCountdown = () => {
+    this.startCountdown = () => {
       this.handleClock = setInterval(() => {
-        decrementClock();
+        this.decrementClock();
       }, 1000);
     };
     // Start Countdown
-    startCountdown();
+    this.startCountdown();
 
     // Decrement clock states to avoid unwanted behaviours
-    decrementClock = () => {
+    this.decrementClock = () => {
       if (this.state.countdown === 1) clearInterval(this.handleClock);
       this.setState(prevState => ({ countdown: prevState.countdown - 1 }));
       if (this.state.countdown === 0) this.setState({ countdown: null });
