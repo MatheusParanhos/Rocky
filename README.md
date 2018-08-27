@@ -1,6 +1,6 @@
 # Rocky made with React-native!
 Showcase:
-https://youtu.be/ATqrOuchG0o
+https://www.youtube.com/watch?v=4fUdFvNECr4
 
 To run this project:
 * `git clone`
