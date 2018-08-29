@@ -1,4 +1,5 @@
 # Rocky made with React-native!
+Made for interview @ Zeta Global / Ebay
 Showcase:
 https://www.youtube.com/watch?v=4fUdFvNECr4
 
