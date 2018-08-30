@@ -20,7 +20,7 @@ export default class PlayAgain extends Component {
             color: colors.primary
           }}
         >
-          Play again?
+          {this.props.title}
         </Text>
       </View>
     );

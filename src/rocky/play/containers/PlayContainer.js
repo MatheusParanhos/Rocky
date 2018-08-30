@@ -31,9 +31,9 @@ export default class PlayContainer extends Component {
         computerChoice: "",
         isPlaying: true
       },
-       () => this.generateComputerChoice(userChoice)
+      () => this.generateComputerChoice(userChoice)
     );
-    return true
+    return true;
   }
   /**
    * Generate computer choice function
@@ -57,7 +57,7 @@ export default class PlayContainer extends Component {
         break;
     }
     this.jokenPo(userChoice, computerChoice);
-    return true
+    return true;
   }
   /**
    * Joken Po function
@@ -69,7 +69,7 @@ export default class PlayContainer extends Component {
      becoming easier to scale into more/different set of rules
    */
   jokenPo(userChoice, computerChoice) {
-    let result = ''
+    let result = "";
     let constraint = { paper: "rock", scissors: "paper", rock: "scissors" };
     if (userChoice === constraint[computerChoice]) {
       result = "Oh no, you lost!";
@@ -81,7 +81,7 @@ export default class PlayContainer extends Component {
     }
     // Call setCountdown function
     this.setCountDown(userChoice, computerChoice, result);
-   return true
+    return true;
   }
 
   /**
@@ -145,7 +145,13 @@ export default class PlayContainer extends Component {
             result={this.state.result}
           />
           {this.state.firstTime === false &&
-            this.state.isPlaying === false && <PlayAgain />}
+            this.state.isPlaying === false && (
+              <PlayAgain title={"Play Again?"} />
+            )}
+          {this.state.firstTime === true &&
+            this.state.isPlaying === false && (
+              <PlayAgain title={"Choose one!"} />
+            )}
           {this.state.isPlaying === false && (
             <Buttons
               {...this.props}

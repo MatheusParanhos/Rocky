@@ -1,52 +1,37 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  TouchableOpacity,
-  StyleSheet,
-  AsyncStorage
-} from "react-native";
+import { AsyncStorage } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Proptypes from "prop-types";
-import { PersistContext } from "./PersistContext";
 
 export const UserContext = React.createContext({
   user: "",
   setUser: () => {}
 });
-const initialState = {
-  user: ""
-};
 export default class UserProvider extends Component {
   constructor() {
     super();
-    // this.persistContext = new PersistContext("UserContext", initialState);
-    //this.state = this.persistContext.getState();
-    // this.state = {
-    //   user: AsyncStorage.getItem("UserContext")
-    // };
-    this.state ={
-      user: ''
-    }
-    //this.state = this.getState();
+    this.state = {
+      user: ""
+    };
   }
-  componentDidMount() {
-    // this.setState({user:'baraka'})
-     // this.getState();
-    //  AsyncStorage.clear()
+  // Initialize user state
+  componentWillMount() {
+    this.getState();
   }
+  
   componentDidUpdate() {
     this.persistState({ ...this.state });
-    //  console.log(this.state.user)
   }
-  getState() {
-    AsyncStorage.getItem("UserContext").then(response => this.setState({user:response}));
-  }
-  persistState(state) {
+  getState = () => {
+    AsyncStorage.getItem("UserContext").then(response => {
+      const parsedResult = JSON.parse(response);
+      this.setState({ user: parsedResult.user });
+    });
+  };
+  persistState = state => {
     const stateJson = JSON.stringify(state);
     AsyncStorage.setItem("UserContext", stateJson);
-     AsyncStorage.getItem("UserContext").then(response => console.log(response));
-  }
+  };
   handleUserChange(user) {
     this.setState({ user });
   }
